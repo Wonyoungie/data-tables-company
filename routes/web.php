@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // end auth
 
 // start main route
-Route::get('/dashboard', function () {
-    return view('pages.dashboard');
-})->name('getDashboard');
+//Route::get('/dashboard', function () {
+  //  return view('pages.dashboard');
+//})->name('getDashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('getDashboard');
 
 Route::prefix('company')->group(function () {
     Route::get('/', [CompanyController::class, 'index'])->name('getCompany');
