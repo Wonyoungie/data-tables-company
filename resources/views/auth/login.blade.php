@@ -66,15 +66,16 @@
                                                 class="rounded-circle" height="34"></span></div>
                                 </a></div>
                             <div class="p-2">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" {{ route('login') }} method="post">
+                                    @csrf
                                     <div class="mb-3"><label class="form-label form-label">Username</label><input
                                             name="username" placeholder="Enter username" type="text"
                                             class="form-control form-control" aria-invalid="false" value=""></div>
                                     <div class="mb-3"><label class="form-label form-label">Password</label>
                                         <div class="input-group auth-pass-inputgroup"><input name="password"
-                                                placeholder="Enter Password" type="password" class="form-control"
-                                                aria-invalid="false" value=""><button class="btn btn-light "
-                                                type="button" id="password-addon"><i
+                                                placeholder="Enter Password" id="password" type="password"
+                                                class="form-control" aria-invalid="false" value=""><button
+                                                class="btn btn-light " type="button" id="password-addon"><i
                                                     class="mdi mdi-eye-outline"></i></button></div>
                                     </div>
                                     <div class="form-check"><input type="checkbox" class="form-check-input"
@@ -104,7 +105,7 @@
                     </div>
                     <div class="mt-5 text-center">
                         <p>Don't have an account ? <a class="fw-medium text-primary"
-                                href="/pages-login/pages-register">
+                                href="/register2">
                                 Signup now </a> </p>
                         <p>© 2024 Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
                     </div>
@@ -112,6 +113,15 @@
             </div>
         </div>
     </section>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const passwordInputBtn = document.getElementById('password-addon');
+
+        passwordInputBtn.addEventListener('click', () => {
+            passwordInput.type == 'password' ? passwordInput.type = 'text' : passwordInput.type = 'password';
+        })
+    </script>
 </body>
 
 </html>

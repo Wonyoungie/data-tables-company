@@ -9,12 +9,12 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" key="t-menu">Menu</li>
 
-                <li>
+                {{-- <li>
                     <a href="{{ route('getDashboard') }}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span key="t-dashboard">Dashboard</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li>
                     <a href="{{ route('getCompany') }}" class="waves-effect">

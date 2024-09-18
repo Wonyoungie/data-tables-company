@@ -12,10 +12,11 @@ class CompanyController extends Controller
 
         return view('pages.company.index');
     }
-    public function getAddCompany()
-    {
-        // main process here ...
+    
+    public function getPartners () {
 
-        return view('pages.company.add');
+        return view('', [
+            'partners'
+        ]);
     }
 }
