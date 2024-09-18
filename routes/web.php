@@ -94,7 +94,7 @@ use App\Http\Controllers\DashboardController;
 // });
 
 
-Route::get('/',[StatisticController::class, 'index'])->name(('index'));
+//Route::get('/',[StatisticController::class, 'index'])->name(('index'));
 
 // start auth
 Route::get('/login', function () {
@@ -109,12 +109,15 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 //Route::get('/dashboard', function () {
   //  return view('pages.dashboard');
 //})->name('getDashboard');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('getDashboard');
-
+Route::get('/', [DashboardController::class, 'index'])->name('getDashboard');
 
 Route::prefix('company')->group(function () {
     Route::get('/', [CompanyController::class, 'index'])->name('getCompany');
     Route::get('/add', [CompanyController::class, 'getAddCompany'])->name('getAddCompany');
+    Route::post('/update-grade', [CompanyController::class, 'updateGrade'])->name('update-grade');
+    // routes/web.php
+    
+
     // Route::post('/add', [CompanyController::class, 'postAddCompany'])->name('postAddCompany');
     // Route::get('/edit', [CompanyController::class, 'getEditCompany'])->name('getEditCompany');
     // Route::post('/edit', [CompanyController::class, 'postEditCompany'])->name('postEditCompany');

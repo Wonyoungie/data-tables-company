@@ -16,7 +16,7 @@ class GradingStudent extends Model
 
 	protected $fillable = [
 		'user_id',
-		'm_partner_id',
+		'partner_id',
 		'laporan',
 		'final_project',
 		'note',
@@ -28,6 +28,6 @@ class GradingStudent extends Model
     }
 
     public function m_partner(){
-        return $this->belongsTo(MPartner::class);
-    }
+		return $this->belongsTo(MPartner::class, 'partner_id');
+	}	
 }
