@@ -56,6 +56,13 @@
                             <option value="">All</option>
                         </select>
                     </div>
+                    <!-- Search Bar -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="searchInput" class="form-label">Search</label>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search by name or company">
+                        </div>
+                    </div>
                 </div>
                 <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
                     <thead>
@@ -103,7 +110,7 @@
                                     <span class="badge bg-secondary">{{ $student->status ?? 'Unknown' }}</span>
                                 @endif
                             </td>
-                            <td>{{ $student->grade ?? ''}}</td>
+                            <td class="grade-column">{{ $student->grade ?? ''}}</td>
                             <td> {{ $student->note ?? ''}} </td>
                         </tr>
                     @endforeach
@@ -233,6 +240,7 @@
 //     filterByStatus();
 // });
 
+// Function filter company & status
 $(document).ready(function() {
     // Fungsi untuk memfilter tabel berdasarkan perusahaan dan status
     function filterTable() {
@@ -269,6 +277,17 @@ $(document).ready(function() {
     // Inisialisasi filter pada saat load halaman jika ada parameter filter yang diatur sebelumnya
     filterTable();
 });
+
+    // Function search
+    $(document).ready(function() {
+        $('#searchInput').on('keyup', function() {
+            var searchValue = $(this).val().toLowerCase();
+            $('#datatable tbody tr').each(function() {
+                var rowText = $(this).text().toLowerCase();
+                $(this).toggle(rowText.includes(searchValue));
+            });
+        });
+    });
 
 </script>
 @endsection
