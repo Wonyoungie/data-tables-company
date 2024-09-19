@@ -41,3 +41,70 @@
     background-color: #128c7e;
     /* Warna latar belakang tombol WhatsApp saat dihover */
 }
+
+.progress-container {
+    text-align: center;
+    margin-top: 5px;
+    cursor: pointer; /* Menunjukkan bahwa elemen bisa diklik */
+    position: relative; /* Tambahkan relative positioning untuk hover-text */
+}
+
+.circular-progress {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: conic-gradient(#da9c41 0% 25%, #ccc 25% 100%); /* Default 25% */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease; /* Transisi halus saat hover */
+}
+
+.circular-progress:hover {
+    background: conic-gradient(#da9c41 0% 100%, #ccc 100% 100%); /* Warna saat di-hover */
+}
+
+.circular-progress:hover .progress-value {
+    opacity: 0; /* Sembunyikan progress-value dengan transparansi saat hover */
+}
+
+.circular-progress:hover .hover-text {
+    opacity: 1; /* Tampilkan teks saat hover dengan transparansi */
+    visibility: visible; /* Pastikan teks terlihat */
+}
+
+.progress-value {
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    transition: opacity 0.3s ease; /* Transisi halus untuk opacity */
+}
+
+.hover-text {
+    position: absolute;
+    font-size: 8px; /* Sedikit lebih besar untuk keterbacaan */
+    color: #fff; /* Warna teks putih agar kontras dengan latar belakang */
+    background-color: #2a3042; /* Latar belakang gelap untuk kontras */
+    border-radius: 15px; /* Sudut melengkung untuk tampilan yang lebih lembut */
+    padding: 5px 10px; /* Spasi di sekitar teks */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Bayangan untuk memberikan efek kedalaman */
+    z-index: 1;
+    width: 50px; /* Lebar teks yang lebih besar */
+    height: 50px; /* Tinggi yang sama dengan progress circle */
+    display: flex;
+    align-items: center; /* Pusatkan teks secara vertikal */
+    justify-content: center; /* Pusatkan teks secara horizontal */
+    opacity: 0; /* Mulai dengan teks tersembunyi */
+    visibility: hidden; /* Mulai dengan teks tersembunyi */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transisi halus untuk opacity dan visibility */
+}
+
+.circular-progress::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+}

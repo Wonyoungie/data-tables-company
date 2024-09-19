@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\StatisticController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FileController;
 
 
 // start main links
@@ -110,11 +111,15 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
   //  return view('pages.dashboard');
 //})->name('getDashboard');
 Route::get('/', [DashboardController::class, 'index'])->name('getDashboard');
+Route::get('/upload', [FileController::class, 'index'])->name('upload-file');
+Route::post('/upload', [FileController::class, 'upload'])->name('upload-file');
+Route::get('/file/{filename}', [CompanyController::class, 'showreport'])->name('show-report');
 
 Route::prefix('company')->group(function () {
     Route::get('/', [CompanyController::class, 'index'])->name('getCompany');
     Route::get('/add', [CompanyController::class, 'getAddCompany'])->name('getAddCompany');
     Route::post('/update-grade', [CompanyController::class, 'updateGrade'])->name('update-grade');
+    Route::get('/student/{id}', [CompanyController::class, 'show'])->name('student-detail');
     // routes/web.php
     
 

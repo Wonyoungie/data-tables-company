@@ -17,10 +17,14 @@ class GradingStudent extends Model
 	protected $fillable = [
 		'user_id',
 		'partner_id',
-		'laporan',
 		'final_project',
 		'note',
-		'status'
+		'status',
+		'laporan_student',
+		'laporan_bulan1',
+		'laporan_bulan2',
+		'laporan_bulan3',
+		'laporan_bulan4'
 	];
 
     public function user(){
